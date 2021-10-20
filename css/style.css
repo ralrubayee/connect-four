@@ -14,8 +14,8 @@ body{
   text-align: center;
   display: grid;
   min-height: 100vh;
-  grid-template-columns: 15% 85%;
-  grid-template-rows: 12% 8% 79%;
+  grid-template-columns: 17% 83%;
+  grid-template-rows: 10% 6% 83%;
   grid-template-areas:
   "a nav "
   "b status "
@@ -23,6 +23,8 @@ body{
   ;
 }
 board{
+  width: 40rem;
+  height: 33rem;
   background-color: rgb(130, 200, 244);
   grid-area: board;
   display: grid;
@@ -47,4 +49,15 @@ menu{
 nav{
   grid-area: nav;
   font-size: 3rem;
+}
+c1r1{
+  grid-area: auto;
+  background-color: white;
+  border-radius: 50rem;
+  margin: .2rem;
+}
+.style-spaces{
+  background-color: white;
+  border-radius: 50rem;
+  margin: .2rem;
 }
