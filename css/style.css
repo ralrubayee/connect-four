@@ -23,20 +23,69 @@ body{
   ;
 }
 board{
-  width: 40rem;
-  height: 33rem;
+  width: 29rem;
+  height: 24rem;
+  border-radius: .8rem;
   background-color: rgb(130, 200, 244);
   grid-area: board;
   display: grid;
   grid-template-columns: 14.286% 14.286% 14.286% 14.286% 14.286% 14.286% 14.286% ;
-  grid-template-rows: 16.667% 16.667% 16.667% 16.667% 16.667% 16.667%;
   grid-template-areas:
-  "c1r6 c2r6 c3r6 c4r6 c5r6 c6r6 c7r6"
-  "c1r5 c2r5 c3r5 c4r5 c5r5 c6r5 c7r5"
-  "c1r4 c2r4 c3r4 c4r4 c5r4 c6r4 c7r4"
-  "c1r3 c2r3 c3r3 c4r3 c5r3 c6r3 c7r3"
-  "c1r2 c2r2 c3r2 c4r2 c5r2 c6r2 c7r2"
-  "c1r1 c2r1 c3r1 c4r1 c5r1 c6r1 c7r1";
+  "c1 c2  c3 c4 c5 c6 c7"
+  "c1 c2  c3 c4 c5 c6 c7"
+  "c1 c2  c3 c4 c5 c6 c7"
+  "c1 c2  c3 c4 c5 c6 c7"
+  "c1 c2  c3 c4 c5 c6 c7"
+  "c1 c2  c3 c4 c5 c6 c7";
+}
+c1{
+  grid-area: c1;
+  width: 4rem;
+  height: 24rem;
+  display: flex;
+  flex-direction: column-reverse;
+}
+c2{
+grid-area: c2;
+  width: 4rem;
+  height: 24rem;
+  display: flex;
+  flex-direction: column-reverse;
+}
+c3{
+  grid-area: c3;
+  width: 4rem;
+  height: 24rem;
+  display: flex;
+  flex-direction: column-reverse;
+}
+c4{
+  grid-area: c4;
+  width: 4rem;
+  height: 24rem;
+  display: flex;
+  flex-direction: column-reverse;
+}
+c5{
+  grid-area: c5;
+  width: 4rem;
+  height: 24rem;
+  display: flex;
+  flex-direction: column-reverse;
+}
+c6{
+  grid-area: c6;
+  width: 4rem;
+  height: 24rem;
+  display: flex;
+  flex-direction: column-reverse;
+}
+c7{
+  grid-area: c7;
+  width: 4rem;
+  height: 24rem;
+  display: flex;
+  flex-direction: column-reverse;
 }
 status{
   grid-area:status;
@@ -45,19 +94,22 @@ menu{
   padding: 0;
   grid-area: menubar;
   align-items: center;
+  display: flex;
+  flex-direction: column;
 }
 nav{
   grid-area: nav;
   font-size: 3rem;
 }
-c1r1{
-  grid-area: auto;
-  background-color: white;
-  border-radius: 50rem;
-  margin: .2rem;
-}
+
 .style-spaces{
+  width: 4rem;
+  height: 4rem;
   background-color: white;
   border-radius: 50rem;
-  margin: .2rem;
+  margin-top: .15rem;
+  margin-bottom: .15rem;
+  margin-left: .1rem;
+  margin-right: .1rem;
+  padding: .2rem;
 }
