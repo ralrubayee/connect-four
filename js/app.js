@@ -3,6 +3,7 @@
 
 /*---------------------------- Variables (state) ----------------------------*/
 let arrC1,arrC2,arrC3,arrC4,arrC5,arrC6,arrC7
+let turn = 0
 
 /*------------------------ Cached Element References ------------------------*/
 // cashed all the columns
@@ -90,29 +91,87 @@ function init(){
   arrC5 = [c5r1, c5r2, c5r3, c5r4, c5r5, c5r6]
   arrC6 = [c6r1, c6r2, c6r3, c6r4, c6r5, c6r6]
   arrC7 = [c7r1, c7r2, c7r3, c7r4, c7r5, c7r6]
+
+  turn = 1
 }
 function addDisk(c){
   if (c=== c1){
+    if(turn === 1){
     arrC1[0].classList.add("red")
     arrC1.shift()
+    changeturn()
+    } else if (turn === 2){
+      arrC1[0].classList.add("yellow")
+      arrC1.shift()
+      changeturn()
+    }
   } else if (c=== c2){
+    if(turn === 1){
     arrC2[0].classList.add("red")
     arrC2.shift()
+    changeturn()
+    } else if (turn === 2){
+      arrC2[0].classList.add("yellow")
+      arrC2.shift()
+      changeturn()
+    }
+    
   } else if (c=== c3){
+    if(turn === 1){
     arrC3[0].classList.add("red")
     arrC3.shift()
+    changeturn()
+    } else if (turn === 2){
+      arrC3[0].classList.add("yellow")
+      arrC3.shift()
+      changeturn()
+    }
   } else if (c=== c4){
+    if(turn === 1){
     arrC4[0].classList.add("red")
     arrC4.shift()
+    changeturn()
+    } else if (turn === 2){
+      arrC4[0].classList.add("yellow")
+      arrC4.shift()
+      changeturn()
+    }
   } else if (c=== c5){
+    if(turn === 1){
     arrC5[0].classList.add("red")
     arrC5.shift()
+    changeturn()
+    } else if (turn === 2){
+      arrC5[0].classList.add("yellow")
+      arrC5.shift()
+      changeturn()
+    }
   } else if (c=== c6){
+    if(turn === 1){
     arrC6[0].classList.add("red")
     arrC6.shift()
+    changeturn()
+    } else if (turn === 2){
+      arrC6[0].classList.add("yellow")
+      arrC6.shift()
+      changeturn()
+    }
   } else if (c=== c7){
+    if(turn === 1){
     arrC7[0].classList.add("red")
     arrC7.shift()
+    changeturn()
+    } else if (turn === 2){
+      arrC7[0].classList.add("yellow")
+      arrC7.shift()
+      changeturn()
+    }
   }
-  
+}
+function changeturn(){
+  if (turn === 1){
+    turn =2
+  } else if (turn === 2){
+    turn =1
+  }
 }
