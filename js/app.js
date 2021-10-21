@@ -110,7 +110,7 @@ if(turn === 1){
   setTimeout(function(){
     c[0].style.backgroundColor = 'red'
     c.shift()
-    changeturn()},1000
+    changeturn()},750
     );
 
 } else if (turn === 2){
@@ -118,7 +118,7 @@ if(turn === 1){
   setTimeout(function(){
     c[0].style.backgroundColor = 'yellow'
     c.shift()
-    changeturn()},1000
+    changeturn()},750
     );
 }
 }
@@ -128,31 +128,31 @@ function drop(c,str){
     let cc = c[i]
     if (i>4){
     setTimeout(function(){
-    cc.style.backgroundColor = str},200
+    cc.style.backgroundColor = str},150
     );
     setTimeout(function(){
-      cc.style.backgroundColor = 'white'},400
+      cc.style.backgroundColor = 'white'},300
     );
     } else if ( i>3){
       setTimeout(function(){
-        cc.style.backgroundColor = str},400
+        cc.style.backgroundColor = str},300
+        );
+        setTimeout(function(){
+          cc.style.backgroundColor = 'white'},450
+        );
+    } else if (i>2){
+      setTimeout(function(){
+        cc.style.backgroundColor = str},450
         );
         setTimeout(function(){
           cc.style.backgroundColor = 'white'},600
         );
-    } else if (i>2){
+    }else if (i>1){
       setTimeout(function(){
         cc.style.backgroundColor = str},600
         );
         setTimeout(function(){
-          cc.style.backgroundColor = 'white'},800
-        );
-    }else if (i>1){
-      setTimeout(function(){
-        cc.style.backgroundColor = str},800
-        );
-        setTimeout(function(){
-          cc.style.backgroundColor = 'white'},1000
+          cc.style.backgroundColor = 'white'},750
         );
     }
   }
