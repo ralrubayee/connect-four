@@ -91,37 +91,73 @@ function init(){
   arrC5 = [c5r1, c5r2, c5r3, c5r4, c5r5, c5r6]
   arrC6 = [c6r1, c6r2, c6r3, c6r4, c6r5, c6r6]
   arrC7 = [c7r1, c7r2, c7r3, c7r4, c7r5, c7r6]
-  columnsToAdd = [arrC1,arrC2,arrC3,arrC4,arrC5,arrC6,arrC7]
-  columnsTocount = [[],[],[],[],[],[],[]]
 
+
+ columnsToAdd = [arrC1,arrC2,arrC3,arrC4,arrC5,arrC6,arrC7]
+ columnsToAdd.forEach(c=>{
+   c.forEach(col=>{
+     col.style.backgroundColor = 'white'
+   })
+ })
   turn = 1
 }
 function addDisk(i){
   let c = columnsToAdd[i]
 if(turn === 1){
-  console.log(turn)
-  c[0].classList.add("red")
+  c[0].style.backgroundColor = 'red'
   c.shift()
-  columnsTocount[i].push(1)
   changeturn()
 } else if (turn === 2){
-  c[0].classList.add("yellow")
+  c[0].style.backgroundColor = 'yellow'
   c.shift()
-  columnsTocount[i].push(2)
+  //columnsTocount[i].push(2)
   changeturn()
 }
 
 }
 function changeturn(){
-  console.log(columnsTocount)
   if (turn === 1){
     turn =2
-    isWinner()
+   isWinner()
   } else if (turn === 2){
     turn =1
-    isWinner()
+   isWinner()
   }
 }
 function isWinner(){
+  let cc1= [c1r1, c1r2, c1r3, c1r4, c1r5, c1r6]
+  let cc2= [c2r1, c2r2, c2r3, c2r4, c2r5, c2r6] 
+  let cc3= [c3r1, c3r2, c3r3, c3r4, c3r5, c3r6]
+  let cc4= [c4r1, c4r2, c4r3, c4r4, c4r5, c4r6]
+  let cc5= [c5r1, c5r2, c5r3, c5r4, c5r5, c5r6]
+  let cc6= [c6r1, c6r2, c6r3, c6r4, c6r5, c6r6]
+  let cc7= [c7r1, c7r2, c7r3, c7r4, c7r5, c7r6]
+  columns = [cc1,cc2,cc3,cc4,cc5,cc6,cc7]
+  let rr1 =[c1r1,c2r1,c3r1,c4r1,c5r1,c6r1,c7r1]
+  let rr2 =[c1r2,c2r2,c3r2,c4r2,c5r2,c6r2,c7r2]
+  let rr3 =[c1r3,c2r3,c3r3,c4r3,c5r3,c6r3,c7r3]
+  let rr4 =[c1r4,c2r4,c3r4,c4r4,c5r4,c6r4,c7r4]
+  let rr5 =[c1r5,c2r5,c3r5,c4r5,c5r5,c6r5,c7r5]
+  let rr6 =[c1r6,c2r6,c3r6,c4r6,c5r6,c6r6,c7r6]
+  rows = [rr1,rr2,rr3,rr4,rr5,rr6]
+rows.forEach(eachRow =>{
+ for(let row=0; row<eachRow.length; row ++){
+  for(i=0; i<4 ; i++){
+    let one = eachRow[row].style.backgroundColor
+    let two = eachRow[row+1].style.backgroundColor
+    let three = eachRow[row+2].style.backgroundColor
+    let four = eachRow[row+3].style.backgroundColor
+   
+    if(colorCheck(one,two,three,four)=== true){
+    console.log('1')
+    }
+  }
+ }
+})
+}
+function colorCheck(one,two,three,four){
+  if (one === two && one === three && one === four && one !== 'white'){
+    return true
+  }else {return false}
 
 }
