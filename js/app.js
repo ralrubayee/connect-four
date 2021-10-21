@@ -106,17 +106,59 @@ function init(){
 function addDisk(i){
   let c = columnsToAdd[i]
 if(turn === 1){
-  c[0].style.backgroundColor = 'red'
-  c.shift()
-  changeturn()
-} else if (turn === 2){
-  c[0].style.backgroundColor = 'yellow'
-  c.shift()
-  //columnsTocount[i].push(2)
-  changeturn()
-}
+  drop(c,'red')
+  setTimeout(function(){
+    c[0].style.backgroundColor = 'red'
+    c.shift()
+    changeturn()},1000
+    );
 
+} else if (turn === 2){
+  drop(c,'yellow')
+  setTimeout(function(){
+    c[0].style.backgroundColor = 'yellow'
+    c.shift()
+    changeturn()},1000
+    );
 }
+}
+function drop(c,str){
+  let a = c.length -1
+  for(i = a; i > 0 ;i--){
+    let cc = c[i]
+    if (i>4){
+    setTimeout(function(){
+    cc.style.backgroundColor = str},200
+    );
+    setTimeout(function(){
+      cc.style.backgroundColor = 'white'},400
+    );
+    } else if ( i>3){
+      setTimeout(function(){
+        cc.style.backgroundColor = str},400
+        );
+        setTimeout(function(){
+          cc.style.backgroundColor = 'white'},600
+        );
+    } else if (i>2){
+      setTimeout(function(){
+        cc.style.backgroundColor = str},600
+        );
+        setTimeout(function(){
+          cc.style.backgroundColor = 'white'},800
+        );
+    }else if (i>1){
+      setTimeout(function(){
+        cc.style.backgroundColor = str},800
+        );
+        setTimeout(function(){
+          cc.style.backgroundColor = 'white'},1000
+        );
+    }
+  }
+  }
+
+
 function changeturn(){
   if (turn === 1){
     turn =2
