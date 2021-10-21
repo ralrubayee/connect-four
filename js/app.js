@@ -6,7 +6,9 @@ let arrC1,arrC2,arrC3,arrC4,arrC5,arrC6,arrC7,columns,arrR1 ,arrR2,arrR3,arrR4,a
 let turn = 0
 
 /*------------------------ Cached Element References ------------------------*/
+let a =document.querySelector("#a")
 // cashed all the columns
+let stat =document.querySelector("p")
 let c1 = document.querySelector("c1")
 let c2 = document.querySelector("c2")
 let c3 = document.querySelector("c3")
@@ -118,13 +120,14 @@ if(turn === 1){
 function changeturn(){
   if (turn === 1){
     turn =2
-   isWinner()
+    isWinner()
   } else if (turn === 2){
     turn =1
-   isWinner()
+    isWinner()
   }
 }
 function isWinner(){
+
   let cc1= [c1r1, c1r2, c1r3, c1r4, c1r5, c1r6]
   let cc2= [c2r1, c2r2, c2r3, c2r4, c2r5, c2r6] 
   let cc3= [c3r1, c3r2, c3r3, c3r4, c3r5, c3r6]
@@ -140,24 +143,96 @@ function isWinner(){
   let rr5 =[c1r5,c2r5,c3r5,c4r5,c5r5,c6r5,c7r5]
   let rr6 =[c1r6,c2r6,c3r6,c4r6,c5r6,c6r6,c7r6]
   rows = [rr1,rr2,rr3,rr4,rr5,rr6]
-rows.forEach(eachRow =>{
- for(let row=0; row<eachRow.length; row ++){
-  for(i=0; i<4 ; i++){
-    let one = eachRow[row].style.backgroundColor
-    let two = eachRow[row+1].style.backgroundColor
-    let three = eachRow[row+2].style.backgroundColor
-    let four = eachRow[row+3].style.backgroundColor
-   
-    if(colorCheck(one,two,three,four)=== true){
-    console.log('1')
+
+    let diagonal1 = [c4r1,c5r2,c6r3,c7r4]
+    let diagonal2 = [c1r3,c2r4,c3r5,c4r6]
+    let diagonal7 = [c1r4,c2r3,c3r2,c4r1]
+    let diagonal8 = [c4r6,c5r5,c6r4,c7r3]
+    let diagonalA1=[diagonal1,diagonal2, diagonal7,diagonal8 ]
+
+    let diagonal3 = [c3r1,c4r2,c5r3,c6r4,c7r5]
+    let diagonal4 = [c1r2,c2r3,c3r4,c4r5,c5r6]
+    let diagonal9 = [c1r5,c2r4,c3r3,c4r2,c5r1]
+    let diagonal10 = [c3r6,c4r5,c5r4,c6r3,c7r2]
+    let diagonalA2=[diagonal3,diagonal4, diagonal9,diagonal10 ]
+
+    let diagonal5 = [c2r1,c3r2,c4r3,c5r4,c6r5,c7r6]
+    let diagonal6 = [c1r1,c2r2,c3r3,c4r4,c5r5,c6r6]
+    let diagonal11 =[c1r6,c2r5,c3r4,c4r3,c5r2,c6r1]
+    let diagonal12 = [c2r6,c3r5,c4r4,c5r3,c6r2,c7r1]
+    let diagonalA3=[diagonal5,diagonal6, diagonal11,diagonal12 ]
+
+  columns.forEach(column=>{
+    for(i=0; i<3 ; i++){
+      let one = column[i].style.backgroundColor
+      let two = column[i+1].style.backgroundColor
+      let three = column[i+2].style.backgroundColor
+      let four = column[i+3].style.backgroundColor
+     
+      if(colorCheck(one,two,three,four)=== true){
+       celebration()
+      }
     }
+  })
+ 
+  //********* */
+  rows.forEach(eachRow =>{
+     for(i=0; i<4 ; i++){
+       let one = eachRow[i].style.backgroundColor
+       let two = eachRow[i+1].style.backgroundColor
+       let three = eachRow[i+2].style.backgroundColor
+       let four = eachRow[i+3].style.backgroundColor
+      
+       if(colorCheck(one,two,three,four)=== true){
+         celebration()
+       }
+     }
+    })
+
+    //********** */
+    diagonalA1.forEach(d=>{
+      let one = d[0].style.backgroundColor
+       let two = d[1].style.backgroundColor
+       let three = d[2].style.backgroundColor
+       let four = d[3].style.backgroundColor
+       if(colorCheck(one,two,three,four)=== true){
+        celebration()
+      }
+    })
+
+    diagonalA2.forEach(d=>{
+      for(i=0; i<2 ;i++){
+        let one = d[i].style.backgroundColor
+        let two = d[i+1].style.backgroundColor
+        let three = d[i+2].style.backgroundColor
+        let four = d[i+3].style.backgroundColor
+        if(colorCheck(one,two,three,four)=== true){
+         celebration()
+       }
+      }
+    })
+
+    diagonalA3.forEach(d=>{
+      for(i=0; i<3 ;i++){
+        let one = d[i].style.backgroundColor
+        let two = d[i+1].style.backgroundColor
+        let three = d[i+2].style.backgroundColor
+        let four = d[i+3].style.backgroundColor
+        if(colorCheck(one,two,three,four)=== true){
+         celebration()
+       }
+      }
+    })
   }
- }
-})
-}
+
 function colorCheck(one,two,three,four){
   if (one === two && one === three && one === four && one !== 'white'){
     return true
   }else {return false}
 
+}
+function celebration(){
+  if (turn === 1){
+    stat.innerHTML = 'yellow wins the game'
+  } else { stat.innerHTML = 'red wins the game'}
 }
