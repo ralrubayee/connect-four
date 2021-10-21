@@ -7,6 +7,8 @@ let turn = 0
 
 /*------------------------ Cached Element References ------------------------*/
 let a =document.querySelector("#a")
+const popUp = document.querySelector("#pop-up")
+
 // cashed all the columns
 let stat =document.querySelector("p")
 let c1 = document.querySelector("c1")
@@ -75,6 +77,7 @@ let c7r6 = document.querySelector("c7r6")
 
 
 /*----------------------------- Event Listeners -----------------------------*/
+popUp.addEventListener("click",handlePopUp)
 c1.addEventListener("click",drop=>{addDisk(0)})
 c2.addEventListener("click",drop=>{addDisk(1)})
 c3.addEventListener("click",drop=>{addDisk(2)})
@@ -84,6 +87,11 @@ c6.addEventListener("click",drop=>{addDisk(5)})
 c7.addEventListener("click",drop=>{addDisk(6)})
 
 /*-------------------------------- Functions --------------------------------*/
+function handlePopUp(){
+//popUp.hidden = true
+popUp.style.display = 'none'
+}
+
 init()
 function init(){
   arrC1 = [c1r1, c1r2, c1r3, c1r4, c1r5, c1r6]
@@ -276,5 +284,9 @@ function colorCheck(one,two,three,four){
 function celebration(){
   if (turn === 1){
     stat.innerHTML = 'yellow wins the game'
-  } else { stat.innerHTML = 'red wins the game'}
+
+  } else { 
+    stat.innerHTML = 'red wins the game'
+  }
+
 }
