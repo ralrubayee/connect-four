@@ -11,8 +11,11 @@ html {
   box-sizing: inherit;
 }
 body{
+  --body-bg: rgb(5, 5, 67);
+  --body-b-bg:rgb(40, 53, 87);
+  --text: bisque;
   
-  background-color: rgb(5, 5, 67);
+  background-color: var(--body-bg);
   text-align: center;
   height: 100vh;
   display: grid;
@@ -26,6 +29,11 @@ body{
   "menu-bar"
   ;
 }
+body.light{
+  --body-bg: rgb(182, 182, 182);
+  --body-b-bg:rgb(179, 198, 247);
+  --text: rgb(26, 26, 25);
+}
 section{
   grid-area: board;
   display: flex;
@@ -38,7 +46,7 @@ board{
   height: 24.5rem;
   border-radius: .8rem;
   border: .15rem solid rgb(131, 132, 136);
-  background-color: rgb(40, 53, 87);
+  background-color: var(--body-b-bg);
   grid-area: board;
   display: grid;
   grid-template-columns: 14.286% 14.286% 14.286% 14.286% 14.286% 14.286% 14.286% ;
@@ -110,7 +118,7 @@ c7{
 }
 status{
   grid-area:status;
-  color: bisque;
+  color:var(--text);
   font-size: 1.3rem;
 
 }
@@ -122,7 +130,7 @@ menu{
   flex-direction: row;
 }
 nav{
-  color:bisque;
+  color:var(--text);
   letter-spacing: .5rem;
   grid-area: nav;
   font-size: 3rem;
@@ -141,14 +149,14 @@ nav{
   padding: .2rem;
 }
 .menu-bar-buttons{
+  width: 100px;
+  height: 40px;
   margin: .5rem;
+  border-radius: 20px;
 }
-≈
-.highlight{
-  border-radius: 2px green;
-}
+
 #pop-up{
-  background: rgb(5, 5, 67);
+  background: var(--body-bg);
   position: absolute;
   width: 100vw; 
   height: 100vh; 
@@ -160,7 +168,7 @@ nav{
 
 }
 #pop-up h2{
-  color: bisque;
+  color: var(--text);
   letter-spacing: 3px;
 }
 .switch{
@@ -168,7 +176,7 @@ nav{
 }
 #pop-up #rules{
   border: 2px solid whitesmoke;
-  color: bisque;
+  color: var(--text);
   text-align: left;
   opacity: 50%;
   padding-top: 5px;
@@ -183,10 +191,10 @@ nav{
   border-radius: 15px;
 }
 #pop-up .input{
-  margin: 5px;
+  margin: 15px;
 }
 #pop-up p{
-  color: bisque;
+  color: var(--text);
 }
 #pop-up #red-player{
   box-shadow: 0 25px 35px red;
@@ -194,4 +202,15 @@ nav{
 #pop-up #yellow-player{
   box-shadow: 0 25px 35px yellow;
 }
+#pop-up .container{
+  margin: 20px;
+  color: var(--text);
+}
+
+#pop-up #light-moood{
+  width: 200px;
+  height: 40px;
+}
+
+
 

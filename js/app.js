@@ -1,6 +1,7 @@
 /*-------------------------------- Constants --------------------------------*/
-
-
+const click = new Audio('./audio/click.wav');
+const btn = new Audio('./audio/btn.wav');
+const cheer = new Audio('./audio/cheer.wav');
 /*---------------------------- Variables (state) ----------------------------*/
 let arrC1,arrC2,arrC3,arrC4,arrC5,arrC6,arrC7,columns,arrR1 ,arrR2,arrR3,arrR4,arrR5,arrR6, rows , columnsToAdd ,columnsTocount
 let turn = 0
@@ -8,11 +9,19 @@ let turn = 0
 /*------------------------ Cached Element References ------------------------*/
 let a =document.querySelector("#a")
 const popUp = document.querySelector("#pop-up")
-const board =document.querySelector("board")
+const board = document.querySelector("board")
+const next = document.querySelector(".next")
+const firstPlayer = document.querySelector("#red-player")
+const secondPlayer = document.querySelector("#yellow-player")
+const reset = document.querySelector("#reset")
+const backToMain = document.querySelector("#back-to-main")
+const lightmood = document.querySelector("#light-moood")
+const body = document.querySelector("body")
+const popUp2 = document.querySelector("#pop-up2")
 
 
 // cashed all the columns
-let stat =document.querySelector("p")
+let stat =document.querySelector("status")
 let c1 = document.querySelector("c1")
 let c2 = document.querySelector("c2")
 let c3 = document.querySelector("c3")
@@ -79,7 +88,11 @@ let c7r6 = document.querySelector("c7r6")
 
 
 /*----------------------------- Event Listeners -----------------------------*/
-popUp.addEventListener("click",handlePopUp)
+next.addEventListener("click",init)
+reset.addEventListener("click",init)
+backToMain.addEventListener("click",back)
+lightmood.addEventListener("click", lightMood)
+
 c1.addEventListener("click",drop=>{addDisk(0)})
 c2.addEventListener("click",drop=>{addDisk(1)})
 c3.addEventListener("click",drop=>{addDisk(2)})
@@ -89,13 +102,12 @@ c6.addEventListener("click",drop=>{addDisk(5)})
 c7.addEventListener("click",drop=>{addDisk(6)})
 
 /*-------------------------------- Functions --------------------------------*/
-function handlePopUp(){
-//popUp.hidden = true
-popUp.style.display = 'none'
-}
 
-init()
 function init(){
+
+btn.play()
+  popUp.style.display = 'none'
+
   arrC1 = [c1r1, c1r2, c1r3, c1r4, c1r5, c1r6]
   arrC2 = [c2r1, c2r2, c2r3, c2r4, c2r5, c2r6]
   arrC3 = [c3r1, c3r2, c3r3, c3r4, c3r5, c3r6]
@@ -104,6 +116,9 @@ function init(){
   arrC6 = [c6r1, c6r2, c6r3, c6r4, c6r5, c6r6]
   arrC7 = [c7r1, c7r2, c7r3, c7r4, c7r5, c7r6]
 
+console.log(firstPlayer.value)
+
+stat.innerHTML=`${firstPlayer.value} Starts the Game`
 
  columnsToAdd = [arrC1,arrC2,arrC3,arrC4,arrC5,arrC6,arrC7]
  columnsToAdd.forEach(c=>{
@@ -112,6 +127,16 @@ function init(){
    })
  })
   turn = 1
+
+}
+function lightMood(){
+  btn.play()
+    body.className = body.className === "light" ? "" : "light" 
+}
+
+function back(){
+  btn.play()
+  popUp.style.display = ''
 }
 function addDisk(i){
   let c = columnsToAdd[i]
@@ -121,6 +146,7 @@ if(turn === 1){
    
     c[0].style.backgroundColor = 'red'
     c.shift()
+    click.play()
     changeturn()},500
     );
 
@@ -129,6 +155,7 @@ if(turn === 1){
   setTimeout(function(){
     c[0].style.backgroundColor = 'yellow'
     c.shift()
+    click.play()
     changeturn()},500
     );
 }
@@ -172,7 +199,7 @@ function drop(c,str){
 
 function changeturn(){
   if (turn === 1){
-    stat.innerHTML = "It's yellow turn"
+    stat.innerHTML = `${secondPlayer.value}'s Turn`
     board.classList.remove("red-shadow")
     board.classList.add("yellow-shadow")
     turn =2
@@ -180,7 +207,7 @@ function changeturn(){
   } else if (turn === 2){
     board.classList.remove("yellow-shadow")
     board.classList.add("red-shadow")
-    stat.innerHTML = "It's red turn"
+    stat.innerHTML = `${firstPlayer.value}'s Turn`
     turn =1
     isWinner()
   }
@@ -292,10 +319,13 @@ function colorCheck(one,two,three,four){
 }
 function celebration(){
   if (turn === 1){
-    stat.innerHTML = 'yellow wins the game'
+    stat.innerHTML = `${secondPlayer.value} Won the Game!`
 
   } else { 
-    stat.innerHTML = 'red wins the game'
+    stat.innerHTML = `${firstPlayer.value} Won the Game!`
   }
-
+  cheer.play()
+  setTimeout(function(){
+    init()},10000
+  );
 }

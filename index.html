@@ -8,7 +8,7 @@
   <script defer src="./js/app.js"></script>
   <link rel="stylesheet" href="./css/style.css">
 </head>
-<body>
+<body class="light-mood">
 
   <div id="pop-up" >
     <h2>welcome to connect four game</h2>
@@ -20,18 +20,21 @@
       <li>he game ends when there is a 4-in-a-row or a stalemate</li>
       <li>The starter of the previous game goes second on the next game.</li>
     </ul>
+    <div>
+      <button id="light-moood">light/dark mood</button>
+    </div>
     <p>add players names</p>
     <div>
       <input class='input' id='red-player'>
       <input class='input' id='yellow-player'>
     </div>
-    <button>next</button>
+   
+    <button class="next">Start</button>
   </div>
-
-  <nav>connect four</nav>
+   <nav>connect four</nav>
  <section>
 <board>
-  
+
 <c1>
 <c1r1 class="style-spaces"></c1r1>
 <c1r2 class="style-spaces"></c1r2>
@@ -91,14 +94,14 @@
 </board>
 </section>
   <menu>
-    <button class="menu-bar-buttons">Reset</button>
-    <button class="menu-bar-buttons">rules</button>
-    <button class="menu-bar-buttons">back to main</button>
+    <button class="menu-bar-buttons" id="reset">Reset</button>
+    <button class="menu-bar-buttons" id="back-to-main">back to main</button>
     
   </menu>
 
   <status>
     <p>red starts the game</p>
   </status>
+ 
 </body>
 </html>
