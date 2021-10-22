@@ -13,10 +13,10 @@
 * The game will be reset if user click the reset button.
 * If the user clicks the return to main button, the game returns to the initial page.
   
-  <img src="https://i.imgur.com/mwmqEhA.png" width="150" height="150">
-   <img src="https://i.imgur.com/6py5g6e.png" width="150" height="150">
-  <img src="https://i.imgur.com/R1FEr4r.png" width="150" height="150">
-  <img src="https://i.imgur.com/nlNjgeL.png" width="150" height="150">
+  <img src="https://i.imgur.com/mwmqEhA.png" width="200" height="200">
+   <img src="https://i.imgur.com/6py5g6e.png" width="200" height="200">
+  <img src="https://i.imgur.com/R1FEr4r.png" width="200" height="200">
+  <img src="https://i.imgur.com/nlNjgeL.png" width="200" height="200">
 
 
 ### game rules:
