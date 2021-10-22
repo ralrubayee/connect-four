@@ -2,7 +2,7 @@
  <img src="https://i.imgur.com/6s24v5k.png">
 
  ### game link:
-<a href="url">connect-four-rawan-alrebeah.netlify.app</a>
+<a href="url">[connect-four-rawan-alrebeah.netlify.app](https://connect-four-rawan-alrebeah.netlify.app)</a>
 
 ## Game description:
 * When the user initially opens the web browser, they will see a page asking for player names and game mood.
