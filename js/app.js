@@ -8,6 +8,8 @@ let turn = 0
 /*------------------------ Cached Element References ------------------------*/
 let a =document.querySelector("#a")
 const popUp = document.querySelector("#pop-up")
+const board =document.querySelector("board")
+
 
 // cashed all the columns
 let stat =document.querySelector("p")
@@ -116,9 +118,10 @@ function addDisk(i){
 if(turn === 1){
   drop(c,'red')
   setTimeout(function(){
+   
     c[0].style.backgroundColor = 'red'
     c.shift()
-    changeturn()},750
+    changeturn()},500
     );
 
 } else if (turn === 2){
@@ -126,7 +129,7 @@ if(turn === 1){
   setTimeout(function(){
     c[0].style.backgroundColor = 'yellow'
     c.shift()
-    changeturn()},750
+    changeturn()},500
     );
 }
 }
@@ -136,31 +139,31 @@ function drop(c,str){
     let cc = c[i]
     if (i>4){
     setTimeout(function(){
-    cc.style.backgroundColor = str},150
+    cc.style.backgroundColor = str},100
     );
     setTimeout(function(){
-      cc.style.backgroundColor = 'white'},300
+      cc.style.backgroundColor = 'white'},200
     );
     } else if ( i>3){
+      setTimeout(function(){
+        cc.style.backgroundColor = str},200
+        );
+        setTimeout(function(){
+          cc.style.backgroundColor = 'white'},300
+        );
+    } else if (i>2){
       setTimeout(function(){
         cc.style.backgroundColor = str},300
         );
         setTimeout(function(){
-          cc.style.backgroundColor = 'white'},450
-        );
-    } else if (i>2){
-      setTimeout(function(){
-        cc.style.backgroundColor = str},450
-        );
-        setTimeout(function(){
-          cc.style.backgroundColor = 'white'},600
+          cc.style.backgroundColor = 'white'},400
         );
     }else if (i>1){
       setTimeout(function(){
-        cc.style.backgroundColor = str},600
+        cc.style.backgroundColor = str},400
         );
         setTimeout(function(){
-          cc.style.backgroundColor = 'white'},750
+          cc.style.backgroundColor = 'white'},500
         );
     }
   }
@@ -169,9 +172,15 @@ function drop(c,str){
 
 function changeturn(){
   if (turn === 1){
+    stat.innerHTML = "It's yellow turn"
+    board.classList.remove("red-shadow")
+    board.classList.add("yellow-shadow")
     turn =2
     isWinner()
   } else if (turn === 2){
+    board.classList.remove("yellow-shadow")
+    board.classList.add("red-shadow")
+    stat.innerHTML = "It's red turn"
     turn =1
     isWinner()
   }

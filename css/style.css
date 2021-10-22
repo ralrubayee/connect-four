@@ -11,9 +11,11 @@ html {
   box-sizing: inherit;
 }
 body{
+  
+  background-color: rgb(5, 5, 67);
   text-align: center;
+  height: 100vh;
   display: grid;
-  min-height: 100vh;
   margin: 0;
   overflow: hidden;
   grid-template-rows: 10% 6% 73% 10%;
@@ -24,14 +26,19 @@ body{
   "menu-bar"
   ;
 }
-
-board{
+section{
   grid-area: board;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+board{
+  
   width: 29.5rem;
   height: 24.5rem;
   border-radius: .8rem;
   border: .15rem solid rgb(131, 132, 136);
-  background-color: rgb(130, 200, 244);
+  background-color: rgb(40, 53, 87);
   grid-area: board;
   display: grid;
   grid-template-columns: 14.286% 14.286% 14.286% 14.286% 14.286% 14.286% 14.286% ;
@@ -42,6 +49,15 @@ board{
   "c1 c2  c3 c4 c5 c6 c7"
   "c1 c2  c3 c4 c5 c6 c7"
   "c1 c2  c3 c4 c5 c6 c7";
+  /* box-shadow: 0 25px 35px yellow; */
+}
+.red-shadow{
+  box-shadow: 0 25px 35px red;
+  transition: .5s;
+}
+.yellow-shadow{
+  box-shadow: 0 25px 35px yellow;
+  transition: .5s;
 }
 c1{
   grid-area: c1;
@@ -94,6 +110,9 @@ c7{
 }
 status{
   grid-area:status;
+  color: bisque;
+  font-size: 1.3rem;
+
 }
 menu{
   grid-area: menu-bar;
@@ -103,6 +122,8 @@ menu{
   flex-direction: row;
 }
 nav{
+  color:bisque;
+  letter-spacing: .5rem;
   grid-area: nav;
   font-size: 3rem;
 }
@@ -122,11 +143,55 @@ nav{
 .menu-bar-buttons{
   margin: .5rem;
 }
-
+≈
+.highlight{
+  border-radius: 2px green;
+}
 #pop-up{
-  border: 1px solid red;
+  background: rgb(5, 5, 67);
+  position: absolute;
   width: 100vw; 
   height: 100vh; 
   z-index: 10; 
-  background-color: white; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
 }
+#pop-up h2{
+  color: bisque;
+  letter-spacing: 3px;
+}
+.switch{
+  border:1px dolis white;
+}
+#pop-up #rules{
+  border: 2px solid whitesmoke;
+  color: bisque;
+  text-align: left;
+  opacity: 50%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-right: 10px;
+}
+#pop-up button{
+  width: 100px;
+  height: 40px;
+  font-size: 20px;
+  margin:20px;
+  border-radius: 15px;
+}
+#pop-up .input{
+  margin: 5px;
+}
+#pop-up p{
+  color: bisque;
+}
+#pop-up #red-player{
+  box-shadow: 0 25px 35px red;
+}
+#pop-up #yellow-player{
+  box-shadow: 0 25px 35px yellow;
+}
+

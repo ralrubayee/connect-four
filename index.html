@@ -9,13 +9,29 @@
   <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-  <div id="pop-up">
-    <input>
+
+  <div id="pop-up" >
+    <h2>welcome to connect four game</h2>
+
+    <ul id="rules" >
+      <li>Players must connect 4 of the same colored discs in a row to win.</li>
+      <li>Only one piece is played at a time.</li>
+      <li>Players can be on the offensive or defensive.</li>
+      <li>he game ends when there is a 4-in-a-row or a stalemate</li>
+      <li>The starter of the previous game goes second on the next game.</li>
+    </ul>
+    <p>add players names</p>
+    <div>
+      <input class='input' id='red-player'>
+      <input class='input' id='yellow-player'>
+    </div>
+    <button>next</button>
   </div>
 
   <nav>connect four</nav>
- 
+ <section>
 <board>
+  
 <c1>
 <c1r1 class="style-spaces"></c1r1>
 <c1r2 class="style-spaces"></c1r2>
@@ -73,13 +89,16 @@
 <c7r6 class="style-spaces"></c7r6>
 </c7>
 </board>
+</section>
   <menu>
     <button class="menu-bar-buttons">Reset</button>
     <button class="menu-bar-buttons">rules</button>
     <button class="menu-bar-buttons">back to main</button>
+    
   </menu>
+
   <status>
-    <p>game status</p>
+    <p>red starts the game</p>
   </status>
 </body>
 </html>
