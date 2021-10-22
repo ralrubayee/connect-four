@@ -16,6 +16,7 @@ body{
   --text: bisque;
   
   background-color: var(--body-bg);
+  font-family: 'Ubuntu', sans-serif;
   text-align: center;
   height: 100vh;
   display: grid;
@@ -153,6 +154,7 @@ nav{
   height: 40px;
   margin: .5rem;
   border-radius: 20px;
+  font-family: 'Ubuntu', sans-serif;
 }
 
 #pop-up{
@@ -184,6 +186,7 @@ nav{
   padding-right: 10px;
 }
 #pop-up button{
+  font-family: 'Ubuntu', sans-serif;
   width: 100px;
   height: 40px;
   font-size: 20px;
@@ -210,6 +213,7 @@ nav{
 #pop-up #light-moood{
   width: 200px;
   height: 40px;
+  font-family: 'Ubuntu', sans-serif;
 }
 
 
